@@ -6,9 +6,13 @@ class ScoreCard:
         return self.pins
     
     def get_score(self):
+        all_frames = self.__pins_to_list()
+
+        total_score = 0
+        for frame in all_frames:
+            total_score += sum(frame)
         
-        
-        return
+        return total_score
     
     def __pins_to_list(self):
         all_frames = []
