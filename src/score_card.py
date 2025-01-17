@@ -14,7 +14,7 @@ class ScoreCard:
         all_frames = []
         frame = []
         for pin in self.pins:
-            frame.append(pin)
+            frame.append(int(pin))
             if len(frame) == 2:
                 all_frames.append(frame)
                 frame = []
