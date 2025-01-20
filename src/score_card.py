@@ -18,10 +18,13 @@ class ScoreCard:
         all_frames = []
         frame = []
         for pin in self.pins:
-            if pin == "-":
+            if pin not in ['/', '-']:
+                frame.append(int(pin))
+            elif pin == '-':
                 frame.append(0)
             else:
-                frame.append(int(pin))
+                frame.append(pin)
+
             if len(frame) == 2:
                 all_frames.append(frame)
                 frame = []
