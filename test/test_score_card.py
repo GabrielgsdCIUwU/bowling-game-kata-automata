@@ -36,3 +36,10 @@ def test_spare_not_extra():
     total = 121
     score_card = ScoreCard(pins)
     assert score_card.get_score() == total
+
+@pytest.mark.strike
+def test_strike():
+    pins = "X9-9-9-9-9-9-9-9-9-"
+    total = 100
+    score_card = ScoreCard(pins)
+    assert score_card.get_score() == total
