@@ -7,6 +7,7 @@ class ScoreCard:
     
     def get_score(self):
         all_frames = self.__pins_to_frames()
+        all_frames = self.__spare_to_value(all_frames)
         total_score = 0
         for frame in all_frames:
             total_score += sum(frame)
@@ -30,3 +31,9 @@ class ScoreCard:
             return 0
         else:
             return pin
+        
+    def __spare_to_value(self, all_frames):
+        for i, frame in enumerate(all_frames):
+            if '/' in frame:
+                all_frames[i] = [10, all_frames[i+1][0]]
+        return all_frames
