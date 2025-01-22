@@ -49,19 +49,21 @@ def test_strike():
     score_card = ScoreCard(pins)
     assert score_card.get_score() == total
 
-
+@pytest.mark.strike
 def test_two_strikes():
     pins = "XX9-9-9-9-9-9-9-9-"
     total = 120
     score_card = ScoreCard(pins)
     assert score_card.get_score() == total
 
+@pytest.mark.strike
 def test_three_strikes():
     pins = "XXX9-9-9-9-9-9-9-"
     total = 141
     score_card = ScoreCard(pins)
     assert score_card.get_score() == total
 
+@pytest.mark.extra_roll
 def test_one_pin_in_extra_roll():
     pins = "9-3/613/815/-/8-7/8/8"
     total = 131
