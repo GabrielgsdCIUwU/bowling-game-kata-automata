@@ -26,6 +26,8 @@ class ScoreCard:
             if len(frame) == 2:
                 all_frames.append(frame)
                 frame = []
+        if frame:
+            all_frames.append(all_frames.pop(-1) + frame)
         return all_frames
 
     def __pin_to_value(self, pin):
