@@ -55,3 +55,9 @@ def test_two_strikes():
     total = 120
     score_card = ScoreCard(pins)
     assert score_card.get_score() == total
+
+def test_three_strikes():
+    pins = "XXX9-9-9-9-9-9-9-"
+    total = 141
+    score_card = ScoreCard(pins)
+    assert score_card.get_score() == total
