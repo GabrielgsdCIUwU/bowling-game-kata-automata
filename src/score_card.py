@@ -40,8 +40,14 @@ class ScoreCard:
         
     def __spare_to_value(self, all_frames):
         for i, frame in enumerate(all_frames):
-            if '/' in frame:
-                all_frames[i] = [10, all_frames[i+1][0]]
+            try:
+                if '/' in frame:
+                    all_frames[i] = [10, all_frames[i+1][0]]
+            except IndexError:
+                if len(all_frames[i]) == 2:
+                    all_frames[i] = [10]
+                else:
+                    all_frames[i] = [10, frame[2]] 
         return all_frames
     
     def __strike_to_value(self, all_frames):
