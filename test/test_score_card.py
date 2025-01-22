@@ -69,3 +69,8 @@ def test_one_pin_in_extra_roll():
     total = 131
     score_card = ScoreCard(pins)
     assert score_card.get_score() == total
+
+    pins = "5/5/5/5/5/5/5/5/5/5/5"
+    total = 150
+    score_card = ScoreCard(pins)
+    assert score_card.get_score() == total
