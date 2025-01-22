@@ -61,3 +61,9 @@ def test_three_strikes():
     total = 141
     score_card = ScoreCard(pins)
     assert score_card.get_score() == total
+
+def test_one_pin_in_extra_roll():
+    pins = "9-3/613/815/-/8-7/8/8"
+    total = 131
+    score_card = ScoreCard(pins)
+    assert score_card.get_score() == total
