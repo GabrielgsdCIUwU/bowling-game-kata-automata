@@ -8,7 +8,7 @@ class ScoreCard:
     def get_score(self):
         all_frames = self.__pins_to_frames()
         all_frames = self.__spare_to_value(all_frames)
-        all_frames = self.__strike_to_value(all_frames)
+        all_frames = self.__strike_to_value(all_frames[::-1])
         total_score = 0
         for frame in all_frames:
             total_score += sum(frame)
@@ -44,13 +44,16 @@ class ScoreCard:
     
     def __strike_to_value(self, all_frames):
         for i, frame in enumerate(all_frames):
-            if 'X' in frame:
-                all_frames[i] = [10, all_frames[i+1][0], all_frames[i+1][1]]
+            try:
+                if 'X' in frame:
+                    all_frames[i] = [10, all_frames[i-1][0], all_frames[i-1][1]]
+            except IndexError:
+                all_frames[i] = [10, all_frames[i-1][0]]
         return all_frames
     
 
 if __name__ == '__main__':
-    pins = "X9-9-9-9-9-9-9-9-9-"
-    total = 100
+    pins = "XXX9-9-9-9-9-9-9-"
+    total = 141
     score_card = ScoreCard(pins)
     assert score_card.get_score() == total
