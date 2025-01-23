@@ -60,7 +60,9 @@ class ScoreCard:
         for i, frame in enumerate(all_frames):
             try:
                 if 'X' in frame:
-                    if i in [0, 1, 2]:
+                    if frame == ['X', 'X', 'X']:
+                        all_frames[i] = [30]
+                    elif i in [0, 1, 2]:
                         all_frames[i] = [10]
                     else:
                         all_frames[i] = [10, all_frames[i-1][0], all_frames[i-1][1]]
