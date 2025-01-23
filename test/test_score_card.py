@@ -76,15 +76,16 @@ def test_one_pin_in_extra_roll():
     assert score_card.get_score() == total
 
 @pytest.mark.extra_roll
+def test_one_strikes_in_extra_rolls():
+    pins = "8/549-XX5/53639/9/X"
+    total = 149
+    score_card = ScoreCard(pins)
+    assert score_card.get_score() == total
+
+@pytest.mark.extra_roll
 def test_two_strikes_in_extra_rolls():
     pins = "9-9-9-9-9-9-9-9-9-XXX"
     total = 111
     score_card = ScoreCard(pins)
     assert score_card.get_score() == total
 
-@pytest.mark.extra_roll
-def test_one_strikes_in_extra_rolls():
-    pins = "8/549-XX5/53639/9/X"
-    total = 149
-    score_card = ScoreCard(pins)
-    assert score_card.get_score() == total
