@@ -20,7 +20,10 @@ class ScoreCard:
         frame = []
         for pin in self.get_pins():
             if pin == 'X':
-                all_frames.append(['X'])
+                if len(all_frames) == 10:
+                    all_frames.append(all_frames.pop() + ['X'])
+                else:
+                    all_frames.append(['X'])
             else:
                 frame.append(self.__pin_to_value(pin))
             if len(frame) == 2:
