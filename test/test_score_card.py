@@ -89,3 +89,10 @@ def test_two_strikes_in_extra_rolls():
     score_card = ScoreCard(pins)
     assert score_card.get_score() == total
 
+@pytest.mark.extra_rolls
+def test_spare_in_extra_roll():
+    pins = "X5/X5/XX5/--5/X5/"
+    total = 175
+    score_card = ScoreCard(pins)
+    assert score_card.get_score() == total
+
