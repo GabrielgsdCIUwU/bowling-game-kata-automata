@@ -45,7 +45,10 @@ class ScoreCard:
         for i, frame in enumerate(all_frames):
             try:
                 if '/' in frame:
-                    all_frames[i] = [10, all_frames[i+1][0]]
+                    if all_frames[i+1][0] == 'X':
+                        all_frames[i] = [10]
+                    else:
+                        all_frames[i] = [10, all_frames[i+1][0]]
             except IndexError:
                 if len(all_frames[i]) == 2:
                     all_frames[i] = [10]
